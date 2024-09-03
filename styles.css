@@ -54,28 +54,29 @@ h1 {
     background-color: red;
     border-radius: 50%;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
 }
 
-.lap-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    color: #000;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+.active {
+   
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+   
+    animation: rotate 6s linear infinite;
 }
 
-.laps p {
-    margin-bottom: 5px;
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(90deg) translate(65px);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(450deg) translate(65px) ;
+    }
 }
 
-.laps span {
-    float: right;
-}
 
 .controls {
     display: flex;

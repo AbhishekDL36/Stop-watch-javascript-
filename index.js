@@ -5,35 +5,34 @@ const redDot = document.querySelector(".red-dot")
 let time = document.querySelector("#time")
 console.log(btns);
 let count = 0;
+let sec = 0;
 let minute = 0;
-let hr = 0;
-let ispaused = true
+
 
 for(let i = 0; i<btns.length; i++){
     btns[i].addEventListener("click",()=>{
         if(i==0){
              a= setInterval(()=>{
-                const angle = (count % 60) * 6;
-                redDot.style.transform = `rotate(${angle}deg)`;
+                redDot.classList.add("active")
                 count++;
-                time.textContent=`${hr}h:${minute}m:${count}s`;
+                time.textContent=`${minute}m:${sec}s:${count}ms`;
                 if(count==60){
-                    minute++;
+                    sec++;
                     count=0;
-                    time.textContent=`${hr}h:${minute}m:${count}s`;
+                    time.textContent=`${minute}m:${sec}s:${count}ms`;
                    
                     
 
-                    if(minute==60) {
-                        hr++;
+                    if(sec==60) {
+                        minute++;
                         count=0;
-                        minute=0;
-                        time.textContent=`${hr}h:${minute}m:${count}s`;
+                        sec=0;
+                        time.textContent=`${minute}m:${sec}s:${count}ms`;
                         
                     }
 
                 }
-             },1000)
+             },10)
 
         }
         else if(i==1) {
@@ -44,8 +43,8 @@ for(let i = 0; i<btns.length; i++){
             clearInterval(a)
              count = 0;
              minute = 0;
-             hr = 0;
-             time.textContent = `${hr}h:${minute}m:${count}s`;
+             sec = 0;
+             time.textContent = `${minute}m:${sec}s:${count}ms`;
 
             
         }
